@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "title": "أوريس آند آش — عطور نادرة",
+    "description": "عطور نادرة، مصدرها موثق وأصالتها مؤكدة. لمن لا يرتدون ما يرتديه الآخرون."
+  },
+  "nav": {
+    "logo": "أوريس آند آش"
+  },
+  "provenance": {
+    "label": "الأصل",
+    "heading": "كل قطعة مُتتبَعة إلى مصدرها، مفحوصة للتأكد من أصالتها، ومختارة بحسب طابعها.",
+    "step_01_title": "المصدر",
+    "step_01_body": "نتعامل مع مقتنين خاصين، بوتيكات أُغلقت، ومبيعات تركات موثقة في أوروبا والخليج.",
+    "step_02_title": "التوثيق",
+    "step_02_body": "كل زجاجة يفحصها مختصون داخليون. الأصل موثق. التركيز مؤكد عبر تحليل GC-MS.",
+    "step_03_title": "الانتقاء",
+    "step_03_body": "تُختار القطع بحسب الطابع والندرة، لا بحسب الموضة. نعرض ما نرتديه نحن."
+  },
+  "footer": {
+    "tagline": "عطور نادرة، مصدرها موثق وأصالتها مؤكدة.",
+    "contact_label": "تواصل معنا",
+    "follow_label": "تابعونا",
+    "rights": "جميع الحقوق محفوظة.",
+    "address": "تل أبيب، إسرائيل",
+    "phone": "+972 3 000 0000",
+    "email": "hello@orisandash.com",
+    "instagram_handle": "@orisandash"
+  },
+  "hero": {
+    "label": "أوريس آند آش — تأسست ٢٠٢٥",
+    "headline_part1": "أنت لا تقتني",
+    "headline_emphasis": "العطر.",
+    "headline_part2": "العطر هو من يقتنيك.",
+    "cta": "ادخل إلى المجموعة",
+    "scroll": "مرر"
+  },
+  "collection": {
+    "label": "قطع مختارة — مجموعة 01",
+    "heading": "من أرشيفات خاصة ودور موثقة.",
+    "rare": "الأخير",
+    "notes_top": "النوتة الأولى",
+    "notes_heart": "النوتة الوسطى",
+    "notes_base": "النوتة الأساسية",
+    "close": "إغلاق",
+    "fulfillment": "خيارات التسليم",
+    "pickup_title": "الاستلام من المتجر",
+    "pickup_subtitle": "تل أبيب — متوفر من ٢٨ أبريل",
+    "ship_title": "الشحن إلى العنوان",
+    "ship_subtitle": "يُحسب عند الدفع",
+    "reserve": "احجز",
+    "back": "رجوع",
+    "form_heading": "تفاصيلك",
+    "name_label": "الاسم الكامل",
+    "name_placeholder": "هالة عبدالله",
+    "email_label": "البريد الإلكتروني",
+    "email_placeholder": "you@example.com",
+    "phone_label": "الهاتف",
+    "phone_placeholder": "+972 50 000 0000",
+    "address_label": "عنوان الشحن",
+    "address_placeholder": "الشارع، المدينة، الرمز البريدي",
+    "pickup_time_label": "وقت الاستلام المفضل",
+    "pickup_time_placeholder": "الجمعة، 2 مايو — بعد الظهر",
+    "payment": "الدفع",
+    "payment_disabled": "الدفع معطل في هذا العرض التوضيحي.",
+    "unit_ml": "مل"
+  }
+}

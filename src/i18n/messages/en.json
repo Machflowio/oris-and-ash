@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "title": "ORIS & ASH — Rare Fragrances",
+    "description": "Rare fragrances, sourced and authenticated. For the ones who don't wear what everyone else does."
+  },
+  "nav": {
+    "logo": "ORIS & ASH"
+  },
+  "provenance": {
+    "label": "Provenance",
+    "heading": "Each piece traced to its source, examined for authenticity, and selected for character.",
+    "step_01_title": "Sourced",
+    "step_01_body": "We work with private collectors, retired boutiques, and verified estate sales across Europe and the Gulf.",
+    "step_02_title": "Authenticated",
+    "step_02_body": "Every bottle is examined by in-house specialists. Provenance documented. Concentration verified by GC-MS sampling.",
+    "step_03_title": "Curated",
+    "step_03_body": "Pieces are selected for character and rarity, never trend. We list what we'd wear ourselves."
+  },
+  "footer": {
+    "tagline": "Rare fragrances, sourced and authenticated.",
+    "contact_label": "Contact",
+    "follow_label": "Follow",
+    "rights": "All rights reserved.",
+    "address": "Tel Aviv, IL",
+    "phone": "+972 3 000 0000",
+    "email": "hello@orisandash.com",
+    "instagram_handle": "@orisandash"
+  },
+  "hero": {
+    "label": "ORIS & ASH — EST. 2025",
+    "headline_part1": "You don't collect",
+    "headline_emphasis": "fragrance.",
+    "headline_part2": "You're collected by it.",
+    "cta": "Enter the collection",
+    "scroll": "SCROLL"
+  },
+  "collection": {
+    "label": "Selected Pieces — Collection 01",
+    "heading": "From private archives and verified houses.",
+    "rare": "Final",
+    "notes_top": "Top",
+    "notes_heart": "Heart",
+    "notes_base": "Base",
+    "close": "Close",
+    "fulfillment": "Fulfillment",
+    "pickup_title": "Pickup at our store",
+    "pickup_subtitle": "Tel Aviv — Available from 28 April",
+    "ship_title": "Ship to address",
+    "ship_subtitle": "Calculated at checkout",
+    "reserve": "Reserve",
+    "back": "Back",
+    "form_heading": "Your details",
+    "name_label": "Full name",
+    "name_placeholder": "Hila Cohen",
+    "email_label": "Email",
+    "email_placeholder": "you@example.com",
+    "phone_label": "Phone",
+    "phone_placeholder": "+972 50 000 0000",
+    "address_label": "Shipping address",
+    "address_placeholder": "Street, City, Postal code",
+    "pickup_time_label": "Preferred pickup time",
+    "pickup_time_placeholder": "Friday, 2 May — afternoon",
+    "payment": "Payment",
+    "payment_disabled": "Payment is disabled in this demo.",
+    "unit_ml": "ml"
+  }
+}

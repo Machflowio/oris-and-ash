@@ -1,0 +1,68 @@
+{
+  "_review": "DRAFT — needs native Hebrew speaker review before any pitch. Do not remove this comment without confirming review status.",
+  "metadata": {
+    "title": "אוריס אנד אש — בשמים נדירים",
+    "description": "בשמים נדירים, מקור מאומת ובדוק. למי שלא מתלבש כמו כולם."
+  },
+  "nav": {
+    "logo": "אוריס אנד אש"
+  },
+  "provenance": {
+    "label": "מקור",
+    "heading": "כל פריט מעוקב למקורו, נבדק לאותנטיות, ונבחר על פי אופי.",
+    "step_01_title": "מקור",
+    "step_01_body": "אנו עובדים עם אספנים פרטיים, חנויות שנסגרו, ומכירות עיזבון מאומתות באירופה ובמפרץ.",
+    "step_02_title": "אימות",
+    "step_02_body": "כל בקבוק נבדק על ידי מומחים פנימיים. ההיסטוריה מתועדת. הריכוז מאומת בדגימת GC-MS.",
+    "step_03_title": "אוצרות",
+    "step_03_body": "הפריטים נבחרים על פי אופי ונדירות, לא על פי טרנדים. אנו מציגים את מה שאנחנו עצמנו היינו לובשים."
+  },
+  "footer": {
+    "tagline": "בשמים נדירים, מקור מאומת ובדוק.",
+    "contact_label": "צור קשר",
+    "follow_label": "עקבו אחרינו",
+    "rights": "כל הזכויות שמורות.",
+    "address": "תל אביב, ישראל",
+    "phone": "+972 3 000 0000",
+    "email": "hello@orisandash.com",
+    "instagram_handle": "@orisandash"
+  },
+  "hero": {
+    "label": "אוריס אנד אש — נוסד 2025",
+    "headline_part1": "אתה לא אוסף",
+    "headline_emphasis": "בשמים.",
+    "headline_part2": "הם אוספים אותך.",
+    "cta": "היכנס לאוסף",
+    "scroll": "גלול"
+  },
+  "collection": {
+    "label": "פריטים נבחרים — אוסף 01",
+    "heading": "מארכיונים פרטיים ובתים מאומתים.",
+    "rare": "אחרון",
+    "notes_top": "פתיחה",
+    "notes_heart": "לב",
+    "notes_base": "בסיס",
+    "close": "סגור",
+    "fulfillment": "איסוף או משלוח",
+    "pickup_title": "איסוף מהחנות",
+    "pickup_subtitle": "תל אביב — זמין החל מ-28 באפריל",
+    "ship_title": "משלוח לכתובת",
+    "ship_subtitle": "מחושב בקופה",
+    "reserve": "שמור",
+    "back": "חזרה",
+    "form_heading": "פרטים אישיים",
+    "name_label": "שם מלא",
+    "name_placeholder": "הילה כהן",
+    "email_label": "אימייל",
+    "email_placeholder": "you@example.com",
+    "phone_label": "טלפון",
+    "phone_placeholder": "+972 50 000 0000",
+    "address_label": "כתובת למשלוח",
+    "address_placeholder": "רחוב, עיר, מיקוד",
+    "pickup_time_label": "זמן איסוף מועדף",
+    "pickup_time_placeholder": "יום שישי, 2 במאי — אחר הצהריים",
+    "payment": "תשלום",
+    "payment_disabled": "התשלום מושבת בהדגמה זו.",
+    "unit_ml": "מ\"ל"
+  }
+}

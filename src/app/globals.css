@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0A0A0A;
+  --color-bone: #F5F1EA;
+  --color-brass: #8B6F47;
+  --color-elevated: #1C1C1C;
+  --color-gold: #D4AF37;
+}
+
+@theme inline {
+  --font-display: var(--font-display-locale), serif;
+  --font-body: var(--font-body-locale), system-ui, sans-serif;
+  --font-mono: var(--font-mono-shared), ui-monospace, monospace;
+  --font-sans: var(--font-body-locale), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-bone);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-bone);
+  }
+
+  /* Browsers stopped defaulting buttons to pointer years ago — restore it
+     project-wide so every clickable element reads as clickable. Disabled
+     buttons keep their default cursor. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Lenis recommended baseline */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
