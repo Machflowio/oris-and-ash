@@ -83,16 +83,26 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
     indexRef.current = exact;
   };
 
-  // Resize canvas to viewport (retina-aware)
+  // Resize the canvas pixel buffer to match its CSS-rendered size.
+  //
+  // Mobile gotcha: `window.innerHeight` shrinks/grows when the URL bar
+  // shows/hides during scroll. If we sized the canvas off it, every
+  // URL-bar toggle would reset canvas.height, wipe the pixels, and force
+  // a redraw — visually a "zoom/glitch" in the hero. Instead we use
+  // `getBoundingClientRect()` (driven by the canvas's CSS h-lvh class,
+  // which is pinned to the LARGEST viewport and never changes mid-scroll)
+  // and skip the work entirely when dimensions haven't actually changed.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.round(window.innerWidth * dpr);
-      canvas.height = Math.round(window.innerHeight * dpr);
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      const rect = canvas.getBoundingClientRect();
+      const newW = Math.round(rect.width * dpr);
+      const newH = Math.round(rect.height * dpr);
+      if (canvas.width === newW && canvas.height === newH) return;
+      canvas.width = newW;
+      canvas.height = newH;
       draw(indexRef.current);
     };
     resize();
@@ -173,7 +183,7 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
       <canvas
         ref={canvasRef}
         aria-hidden
-        className="fixed inset-0 z-0 h-svh w-full bg-elevated"
+        className="fixed inset-0 z-0 h-lvh w-full bg-elevated"
       />
       <div className="relative z-10 h-svh">
         <div
