@@ -139,10 +139,12 @@ projects, adjust `src/i18n/routing.ts` to the locales they need.
   units (`ml`, `₪`, `·`, `LOT`, numerical counts), and locale 
   switcher labels (each shown in its own native script: "EN" / 
   "עב" / "ع").
-- **Hebrew copy is a draft** and flagged with a `_review` key in 
-  `he.json`. It needs native speaker review before any pitch. Do not 
-  remove the `_review` key.
-- **Arabic copy** is from a fluent speaker and can be trusted.
+- **Hebrew and Arabic copy are drafts** and flagged with a 
+  `_review` key in `he.json` and `ar.json`. Both need native speaker 
+  review before any pitch. Translations were rewritten from scratch 
+  in a more native voice (not literal calques from English) but 
+  still need a fluent reader to sign off. Do not remove the 
+  `_review` keys.
 
 ## Animation principles
 
