@@ -190,6 +190,13 @@ Rules:
 - **Mobile:** smaller frame variant via 
   `NEXT_PUBLIC_HERO_FRAMES_BASE_MOBILE`, swapped at the 768px 
   breakpoint
+- **Aspect ratio (client work):** the demo ships a single landscape 
+  source (16:9). On portrait phones, `Math.max` cover scaling has to 
+  upscale the landscape source ~2.5–4× to fill height, which softens 
+  the bottle. Acceptable for the demo, **not ideal for production**. 
+  For real client builds, render two source variants — landscape 
+  (16:9) for desktop, portrait (9:16 or 3:4) for mobile — and swap 
+  at the breakpoint alongside the existing 1080p / 720p res swap.
 - **RTL:** the frame sequence renders as-is in every locale — the 
   bottle's orientation never flips. Only text and layout flow respond 
   to `dir` (via Tailwind logical properties). The gradient overlay is 
