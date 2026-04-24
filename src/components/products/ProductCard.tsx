@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useFormatter, useTranslations } from "next-intl";
+import { useRef } from "react";
 import type { Product } from "@/data/products";
 
 const RARE_THRESHOLD = 2;
@@ -16,11 +17,27 @@ export function ProductCard({
   const t = useTranslations("collection");
   const format = useFormatter();
   const isRare = product.bottlesRemaining <= RARE_THRESHOLD;
+  const prefetchedRef = useRef(false);
+
+  // Warm Next's image-optimization cache for the modal-size variant on
+  // hover/focus/touch, so the detail modal opens with the image already
+  // decoded. Without this, the first click had a visible delay because
+  // the card uses a smaller variant (33vw on desktop) than the modal
+  // (50vw), so the larger variant wasn't in the browser cache yet.
+  const handlePrefetch = () => {
+    if (prefetchedRef.current || !product.image) return;
+    prefetchedRef.current = true;
+    const img = new window.Image();
+    img.src = `/_next/image?url=${encodeURIComponent(product.image)}&w=1920&q=75`;
+  };
 
   return (
     <button
       type="button"
       onClick={onClick}
+      onMouseEnter={handlePrefetch}
+      onFocus={handlePrefetch}
+      onTouchStart={handlePrefetch}
       className="group block w-full text-start"
     >
       <div className="relative aspect-[3/4] overflow-hidden bg-elevated transition-shadow duration-500 group-hover:shadow-[inset_0_0_0_1px_rgba(139,111,71,0.4)]">
