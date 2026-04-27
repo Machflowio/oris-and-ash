@@ -192,34 +192,40 @@ Rules:
 - **Mobile:** smaller frame variant via 
   `NEXT_PUBLIC_HERO_FRAMES_BASE_MOBILE`, swapped at the 768px 
   breakpoint
-- **Aspect ratio (client work):** the demo ships a single landscape 
-  source (16:9). On portrait phones, `Math.max` cover scaling has to 
-  upscale the landscape source ~2.5–4× to fill height, which softens 
-  the bottle. Acceptable for the demo, **not ideal for production**. 
-  For real client builds, render two source variants — landscape 
-  (16:9) for desktop, portrait (9:16 or 3:4) for mobile — and swap 
-  at the breakpoint alongside the existing 1080p / 720p res swap.
+- **Aspect ratio:** the scroll-scrub uses a landscape (16:9) frame 
+  source. On portrait viewports the component swaps to a static 9:16 
+  still (`hero-smoke-mobile.jpg`, served via `next/image` for 
+  responsive resize + webp/avif) instead of scrubbing — keeps the 
+  bottle sharp without forcing `Math.max` cover to over-scale the 
+  landscape frames ~2.5–4×. Trigger is `(orientation: portrait)`, 
+  which catches portrait phones, portrait tablets, and 
+  tall-and-narrow desktop windows. The 1080p/720p split on the 
+  canvas path stays — landscape phones still get 720p frames.
 - **RTL:** the frame sequence renders as-is in every locale — the 
   bottle's orientation never flips. Only text and layout flow respond 
   to `dir` (via Tailwind logical properties). The gradient overlay is 
   biased toward the text's start side so the headline stays readable 
   even when it overlaps the bottle area in RTL.
 - **Accessibility:** canvas is `aria-hidden`; `prefers-reduced-motion` 
-  skips the preload + scrub entirely and just shows the poster
+  skips the preload + scrub entirely and just shows the poster — 
+  except portrait reduced-motion users, who get the higher-quality 
+  9:16 mobile still
 
 Asset URLs are environment variables so they can be swapped per 
 environment or per client without code changes:
 
 ```
 NEXT_PUBLIC_HERO_FRAMES_BASE          # desktop frames base URL
-NEXT_PUBLIC_HERO_FRAMES_BASE_MOBILE   # mobile frames base URL
+NEXT_PUBLIC_HERO_FRAMES_BASE_MOBILE   # mobile (landscape) frames base URL
 NEXT_PUBLIC_HERO_FRAME_COUNT          # total frame count (e.g. 121)
 NEXT_PUBLIC_HERO_POSTER_URL           # poster image URL
+NEXT_PUBLIC_HERO_MOBILE_IMAGE_URL     # static 9:16 still for portrait viewports
 ```
 
 In dev, defaults point at `/videos/hero-smoke-frames-1080p/`, 
-`/videos/hero-smoke-frames-720p/`, and `/videos/hero-smoke-poster.jpg` 
-so the component works without an `.env.local`.
+`/videos/hero-smoke-frames-720p/`, `/videos/hero-smoke-poster.jpg`, 
+and `/videos/hero-smoke-mobile.jpg` so the component works without 
+an `.env.local`.
 
 ## File structure
 

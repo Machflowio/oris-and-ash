@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import NextImage from "next/image";
 import { useLocale } from "next-intl";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { getDirection, type AppLocale } from "@/i18n/routing";
@@ -18,6 +19,9 @@ const FRAMES_BASE_MOBILE =
   "/videos/hero-smoke-frames-720p";
 const POSTER =
   process.env.NEXT_PUBLIC_HERO_POSTER_URL ?? "/videos/hero-smoke-poster.jpg";
+const MOBILE_IMAGE =
+  process.env.NEXT_PUBLIC_HERO_MOBILE_IMAGE_URL ??
+  "/videos/hero-smoke-mobile.jpg";
 const TOTAL_FRAMES = Number(process.env.NEXT_PUBLIC_HERO_FRAME_COUNT ?? "121");
 
 const MOBILE_BREAKPOINT = 768;
@@ -33,6 +37,7 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
   const framesRef = useRef<HTMLImageElement[]>([]);
   const indexRef = useRef(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPortrait, setIsPortrait] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const dir = getDirection(useLocale() as AppLocale);
 
@@ -40,12 +45,19 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
     const setSize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     setSize();
     window.addEventListener("resize", setSize);
+    // Portrait viewport = the landscape 16:9 frame source has to over-scale
+    // to fill height. Switch to a dedicated 9:16 still instead of scrubbing.
+    const portraitMq = window.matchMedia("(orientation: portrait)");
+    const onPortrait = () => setIsPortrait(portraitMq.matches);
+    onPortrait();
+    portraitMq.addEventListener("change", onPortrait);
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const onMq = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    const onMq = () => setReducedMotion(mq.matches);
+    onMq();
     mq.addEventListener("change", onMq);
     return () => {
       window.removeEventListener("resize", setSize);
+      portraitMq.removeEventListener("change", onPortrait);
       mq.removeEventListener("change", onMq);
     };
   }, []);
@@ -108,11 +120,11 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, []);
+  }, [isPortrait]);
 
   // Preload + decode all frames, then attach scrub
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || isPortrait) return;
     const section = sectionRef.current;
     if (!section) return;
     let cancelled = false;
@@ -167,7 +179,7 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
       tween?.scrollTrigger?.kill();
       tween?.kill();
     };
-  }, [isMobile, reducedMotion]);
+  }, [isMobile, isPortrait, reducedMotion]);
 
   const overlayGradient =
     dir === "rtl"
@@ -180,11 +192,27 @@ export function HeroScrollScrub({ children }: { children: ReactNode }) {
       className="relative w-full"
       style={{ height: SECTION_HEIGHT }}
     >
-      <canvas
-        ref={canvasRef}
-        aria-hidden
-        className="fixed inset-0 z-0 h-lvh w-full bg-elevated"
-      />
+      {isPortrait ? (
+        <div
+          aria-hidden
+          className="fixed inset-0 z-0 h-lvh w-full bg-elevated"
+        >
+          <NextImage
+            src={MOBILE_IMAGE}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <canvas
+          ref={canvasRef}
+          aria-hidden
+          className="fixed inset-0 z-0 h-lvh w-full bg-elevated"
+        />
+      )}
       <div className="relative z-10 h-svh">
         <div
           aria-hidden
